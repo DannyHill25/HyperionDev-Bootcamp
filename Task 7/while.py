@@ -14,16 +14,28 @@
 
 i = 0
 sum = 0
-num = int(input("Please enter a number: "))
+num = 0
 
-while num == -1:
-    print("Sorry, the first number can't be -1\n")
-    num = int(input("Please enter a number other than -1: "))
+while True:
+    try:
+        num = int(input("Please enter a number: "))
+        if num == -1:
+            print("Sorry, the first number can't be -1\n")
+            continue
+        break  # Break the loop if input is successfully converted to an integer and not -1
+    except ValueError:
+        print("Please enter a valid integer.")
 
 while num != -1:
     i += 1
     sum += num
-    num = int(input("\nPlease enter another number: "))
+    num = 0
+    while True:
+        try:
+            num = int(input("\nPlease enter another number: "))
+            break  # Break the loop if input is successfully converted to an integer
+        except ValueError:
+            print("Please enter a valid integer.")
 
-sum_ave = round(float(sum/i),2)
+sum_ave = round(float(sum/i), 2)
 print("\nThe average of all input numbers is {}".format(sum_ave))
