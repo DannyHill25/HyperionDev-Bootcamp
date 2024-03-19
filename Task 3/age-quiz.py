@@ -7,7 +7,13 @@
 #If user is exactly 21, print "Congrats on your 21st!"
 #For any other age, print "Age is but a number"
 
-age = int(input("Please enter your age here: "))
+while True:
+    try:
+        age = int(input("Please enter your age here: "))
+        break
+    except ValueError:
+        print("Please enter a valid integer for your age.")
+
 age_21 = False #setting logical test for age 21 case
 
 if age == 21: #Change boolean value if user enters 21
